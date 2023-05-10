@@ -49,15 +49,15 @@ jobs:
           force: true
           chart-folder: ${{ env.CHART_APP_FOLDER }}
 
-      - name: Setup ArgoCD CLI 
-        uses: imajeetyadav/argocd-cli@v1
-        with:
-          version: v2.7.1 # optional 
+      # - name: Setup ArgoCD CLI 
+      #   uses: imajeetyadav/argocd-cli@v1
+      #   with:
+      #     version: v2.7.1 # optional 
       
-      - name: Check Argo CD CLI version
-        run: |
-          argocd login $ARGO_SERVER --username ${{ secrets.ARGO_USER }} --password ${{ secrets.ARGO_PASSWD }}
-          echo "argocd app set argocd/$REPO_NAME --project default --revision $CHART_VERSION"
+      # - name: Check Argo CD CLI version
+      #   run: |
+      #     argocd login $ARGO_SERVER --username ${{ secrets.ARGO_USER }} --password ${{ secrets.ARGO_PASSWD }}
+      #     echo "argocd app set argocd/$REPO_NAME --project default --revision $CHART_VERSION"
 
       # - name: Push Helm chart to OCI compatible registry (Github)
       #   uses: bsord/helm-push@v4.1.0
