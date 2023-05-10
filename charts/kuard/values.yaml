@@ -4,7 +4,7 @@
 
 replicaCount: 1
 image:
-  repository: ajaguilarbravo-ent/kuard
+  repository: gcr.io/kuar-demo/kuard-amd64
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
@@ -47,9 +47,10 @@ ingress:
         - path: /
           pathType: ImplementationSpecific
   tls:
-    hosts:
-      - kuard.20.103.115.121.nip.io
-    secretName: kuard-tls
+    - secretName: kuard-tls
+      hosts:
+        - kuard.20.103.115.121.nip.io
+    
     #  - secretName: chart-example-tls
     #    hosts:
     #      - chart-example.local
